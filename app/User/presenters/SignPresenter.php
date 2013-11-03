@@ -3,6 +3,8 @@
 use Nette\Application\UI;
 
 
+namespace UserModule;
+
 /**
  * Sign in/out presenters.
  */
@@ -16,7 +18,7 @@ class SignPresenter extends BasePresenter
 	 */
 	protected function createComponentSignInForm()
 	{
-		$form = new UI\Form;
+		$form = new \Nette\Application\UI\Form;
 		$form->addText('username', 'Username:')
 			->setRequired('Please enter your username.');
 
@@ -47,17 +49,9 @@ class SignPresenter extends BasePresenter
 			$this->getUser()->login($values->username, $values->password);
 			$this->redirect('Homepage:');
 
-		} catch (Nette\Security\AuthenticationException $e) {
+		} catch (\Nette\Security\AuthenticationException $e) {
 			$form->addError($e->getMessage());
 		}
-	}
-
-
-	public function actionOut()
-	{
-		$this->getUser()->logout();
-		$this->flashMessage('You have been signed out.');
-		$this->redirect('in');
 	}
 
 }

@@ -6,9 +6,10 @@
 class HomepagePresenter extends BasePresenter
 {
 
-	public function renderDefault()
+	public function startup()
 	{
-		$this->template->anyVariable = 'any value';
+//		$this->template->anyVariable = 'any value';
+		parent::startup();
 	}
 
 }

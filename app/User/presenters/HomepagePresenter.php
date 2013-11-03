@@ -4,7 +4,7 @@ namespace UserModule;
 /**
  * Homepage presenter.
  */
-class HomepagePresenter extends BasePresenter
+class HomepagePresenter extends SignedPresenter
 {
 
 	public function renderDefault()
