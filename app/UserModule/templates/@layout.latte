@@ -1,0 +1,45 @@
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+	<title>{block title|striptags|upper}AppStore :: Uživatelská sekce{/block}</title>
+    <script type="text/javascript" src="{$baseUri}/ckeditor/config.js"></script>
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+    <link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+	{block head}{/block}
+</head>
+
+<body>
+	<script> document.documentElement.className+=' js' </script>
+    <div class="navbar navbar-static-top">
+        <a n:href="signOut!">Odhlásit se</a>
+    </div>
+    <div class="container">
+	    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}
+        </div>
+        <h1>Uživatelská sekce</h1>
+        <ul>
+            <li><a n:href="ApplicationsCatalog:show">Katalog aplikací</a></li>
+            <li><a n:href="AuthorsCatalog:show">Katalog autorů</a></li>
+        </ul>
+    	{include #content}
+    </div>
+
+	{block scripts}
+	<script src="{$basePath}/js/jquery.js"></script>
+	<script src="{$basePath}/js/netteForms.js"></script>
+	<script src="{$basePath}/js/main.js"></script>
+	{/block}
+
+</body>
+</html>
