@@ -29,6 +29,8 @@ common:
 		routerFactory: RouterFactory
 		router: @routerFactory::createRouter
 
+		applicationRepository: ApplicationRepository(@nette.database.default)
+
 
 	factories:
 

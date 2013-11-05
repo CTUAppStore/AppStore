@@ -1,0 +1,11 @@
+{block content}
+<h2>Detail aplikace</h2>
+{foreach $AppData as $dat}
+<table>
+<tr><th>Název:</th><td></td></tr>
+<tr><th>Krátký popis:</th><td></td></tr>
+<tr><th>Klíčová slova:</th><td></td></tr>
+<tr><th>Popis:</th><td></td></tr>
+</table>
+<a class="" n:href="Application:buy $dat->id">Zakoupit aplikaci</a>
+{/foreach}
