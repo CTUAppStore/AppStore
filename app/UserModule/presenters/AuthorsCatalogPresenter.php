@@ -21,7 +21,7 @@ class AuthorsCatalogPresenter extends SignedPresenter
 
 	public function renderShow()
 	{
-		$this->template->anyVariable = 'any value';
+		$this -> template -> authorsList = $this -> m_AuthorsList;
 	}
 
 }

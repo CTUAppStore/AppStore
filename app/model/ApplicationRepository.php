@@ -5,8 +5,7 @@
 
 class ApplicationRepository extends BaseRepository
 {
-	private $m_Table;
-
+	
 	public function __contstruct ( Nette\Database\Connection $database )
 	{
 		parent::__construct( $database );

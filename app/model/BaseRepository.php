@@ -3,6 +3,7 @@
 	class BaseRepository extends Nette\Object
 	{
 		protected $connection;
+		protected $m_Table;
 
 		public function __construct ( Nette\Database\Connection $database )
 		{
