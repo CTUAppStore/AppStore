@@ -4,8 +4,7 @@ namespace UserModule;
 /**
  * Homepage presenter.
  */
-//class HomepagePresenter extends SignedPresenter - docasne zakomentovano, nez bude pristup do databaze
-class HomepagePresenter extends BasePresenter
+class HomepagePresenter extends SignedPresenter
 {
 
 	public function renderDefault()

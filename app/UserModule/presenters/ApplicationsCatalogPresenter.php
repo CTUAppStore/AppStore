@@ -4,8 +4,7 @@ namespace UserModule;
 /**
  * ApplicationsCatalog presenter.
  */
-//class ApplicationsCatalogPresenter extends SignedPresenter - docasne zakomentovano, nez bude pristup do databaze
-class ApplicationsCatalogPresenter extends BasePresenter
+class ApplicationsCatalogPresenter extends SignedPresenter
 {
 
 	public function renderDefault()

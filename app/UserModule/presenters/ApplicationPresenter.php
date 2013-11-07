@@ -7,8 +7,7 @@ use Nette\Application\UI\Form;
 /**
  * Application presenter.
  */
-//class ApplicationPresenter extends SignedPresenter - docasne zakomentovano, nez bude pristup do databaze
-class ApplicationPresenter extends BasePresenter
+class ApplicationPresenter extends SignedPresenter
 {
 	private $m_AppData;
 
