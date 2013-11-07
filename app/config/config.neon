@@ -30,6 +30,7 @@ common:
 		router: @routerFactory::createRouter
 
 		applicationRepository: ApplicationRepository(@nette.database.default)
+		authorRepository: AuthorRepository(@nette.database.default)
 
 
 	factories:

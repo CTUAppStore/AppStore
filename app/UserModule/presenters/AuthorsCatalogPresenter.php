@@ -6,8 +6,20 @@ namespace UserModule;
  */
 class AuthorsCatalogPresenter extends SignedPresenter
 {
+	private $m_AuthorsList;
 
-	public function renderDefault()
+	protected function startup()
+	{
+		parent::startup();
+		$this -> repository = $this -> context -> authorRepository;
+	}
+
+	public function actionShow ()
+	{
+		$this -> m_AuthorsList =  $this -> repository -> getAuthorsList ();
+	}
+
+	public function renderShow()
 	{
 		$this->template->anyVariable = 'any value';
 	}

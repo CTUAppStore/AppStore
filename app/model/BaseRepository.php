@@ -8,4 +8,10 @@
 		{
 			$this -> connection = $database;
 		}
+
+		public function getTable ()
+		{
+			$table = $this -> connection -> table ( $this -> m_Table );
+			return $table;
+		}	
 	}

@@ -6,10 +6,21 @@ namespace UserModule;
  */
 class ApplicationsCatalogPresenter extends SignedPresenter
 {
+	private $m_AppList;
 
-	public function renderDefault()
+	public function startup ()
 	{
-		$this->template->anyVariable = 'any value';
+		parent::startup ();
+		$this ->  repository = $this -> context -> applicationRepository;
 	}
 
+	public function actionShow ()
+	{
+		$this -> m_AppList = $this -> repository -> getAppList ();
+	}
+
+	public function renderShow()
+	{
+		$this -> template -> appList = $this -> m_AppList;
+	}
 }

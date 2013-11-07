@@ -14,7 +14,7 @@ abstract class SignedPresenter extends BasePresenter
 		parent::startup();
 
 		if (!$this->getUser()->isLoggedIn())
-	    	$this->redirect(':User:Sign:in');
+			$this->redirect(':User:Sign:in');
     }
 
 	/*public function actionOut()

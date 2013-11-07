@@ -9,7 +9,7 @@ use Nette\Application\UI\Form;
  */
 class ApplicationPresenter extends SignedPresenter
 {
-	private $m_AppData;
+	private $m_AppList;
 
 	protected function startup()
 	{
@@ -19,12 +19,12 @@ class ApplicationPresenter extends SignedPresenter
 
 	public function actionShow ( $id )
 	{
-		$this -> m_AppData = $this -> repository -> getApplicationData ( $id );
+		$this -> m_AppList = $this -> repository -> getApplicationData ( $id );
 	}
 
 	public function renderShow ()
 	{
-		$this -> template -> AppData = $this -> m_AppData;
+		$this -> template -> AppData = $this -> m_AppList;
 	}
 
 	public function actionBuy ( $id )

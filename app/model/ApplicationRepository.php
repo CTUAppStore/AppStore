@@ -5,23 +5,23 @@
 
 class ApplicationRepository extends BaseRepository
 {
-	private $m_AppTable;
+	private $m_Table;
 
 	public function __contstruct ( Nette\Database\Connection $database )
 	{
 		parent::__construct( $database );
-		$this -> m_AppTable = "";
+		$this -> m_Table = "";
 	}
-
-	public function getTable ()
-	{
-		$table = $this -> connection -> table ( $this -> m_AppTable );
-		return $table;
-	}	
 
 	public function getApplicationData ( $id )
 	{
 		//return $this -> getTable () -> where ( "id", $id );
+		return array(10);
+	}
+
+	public function getAppList ()
+	{
+		//return $this -> getTable ();
 		return array(10);
 	}
 }
