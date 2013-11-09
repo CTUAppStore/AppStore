@@ -11,7 +11,7 @@ class AuthorsCatalogPresenter extends SignedPresenter
 	protected function startup()
 	{
 		parent::startup();
-		$this -> repository = $this -> context -> authorRepository;
+		$this -> repository = $this -> context -> applicationRepository;
 	}
 
 	public function actionShow ()
