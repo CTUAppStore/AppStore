@@ -1,9 +1,18 @@
 {block content}
 <h2>Detail aplikace</h2>
+<a n:href=":User:Application:buy $appData->ID_aplikace">Koupit licenci</a>
 <table>
 <tr><th>Název:</th><td>{$appData->nazev}</td></tr>
 <tr><th>Popis:</th><td>{$appData->popis}</td></tr>
 <tr><th>Verze aplikace:</th><td>{$appData->verze}</td></tr>
+<tr><th>Cena licence:</th><td>{$licenceInfo->cena|number} Kč</td></tr>
+<tr><th>Doba platnosti:</th><td>{$licenceInfo->doba_platnosti} dnů</td></tr>
 <tr><th>Přidáno:</th><td>{$appData->datum_pridani|date:'j.n.Y H:i:s'}</td></tr>
-<tr><th>Autor:</th><td><a n:href=":User:Author:show $appData->autor">Detail autora</a></td></tr>
+<tr><th>Autor:</th><td><a n:href=":User:Author:show $appData->autor">{$authorName->jmeno}</a></td></tr>
+</table>
+<h3>Obrázky</h3>
+<table>
+{foreach $appPictures as $pict}
+<tr><td>{$pict->popis}</td><td><img src="{$pict->url}"></td></tr>
+{/foreach}
 </table>

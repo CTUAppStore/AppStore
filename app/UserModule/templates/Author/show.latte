@@ -1,5 +1,13 @@
 {block content}
 <h2>Detail autora</h2>
-{$AuthorData->username},{$AuthorData->jmeno}, jeste vypsat pridruzene aplikace
 <table>
+<tr><th>Username:</th><td>{$AuthorData->username}</td></tr>
+<tr><th>Jméno a příjmení:</th><td>{$AuthorData->jmeno}</td></tr> 
+<tr><th>Email:</th><td>{$AuthorData->email}</td></tr> 
 </table> 
+<h3>Autorovy aplikace</h3>
+<table>
+{foreach $AuthorApps as $app}
+<tr><td><a n:href=":User:Application:show $app->ID_aplikace">{$app->nazev}</a></td><td>{$app->popis}</td></tr>
+{/foreach}
+</table>

@@ -58,6 +58,21 @@ class ApplicationRepository extends BaseRepository
 		return $this -> getAplikaceTable () -> where ( "ID_aplikace", $id ) -> fetch ();
 	}
 
+	public function getApplicationLicenceInfo ( $id )
+	{
+		return $this -> getLicenceTable () -> where ( "aplikace", $id ) -> fetch ();
+	}
+
+	public function getApplicationPictures ( $id )
+	{
+		return $this -> getObrazekTable () -> where ( "aplikace", $id );
+	}
+
+	public function getAuthorApps ( $username )
+	{
+		return $this -> getAplikaceTable () -> where ( "autor", $username );
+	}
+
 	public function getAppList ()
 	{
 		return $this -> getAplikaceTable ();
@@ -71,5 +86,11 @@ class ApplicationRepository extends BaseRepository
 	public function getAuthorData ( $username )
 	{
 		return $this -> getAutorTable () -> where ( "username", $username ) -> fetch ();
+	}
+
+	public function getAuthorName ( $appId )
+	{
+		$rowAuthor = $this -> getAplikaceTable () -> select ( "autor" ) -> where ( "ID_aplikace", $appId );
+		return $this -> getAutorTable () -> select ( "jmeno" ) -> where ( "username", $rowAuthor ) -> fetch ();
 	}
 }
