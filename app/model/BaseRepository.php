@@ -10,9 +10,13 @@
 			$this -> connection = $database;
 		}
 
+		public function startup ()
+		{
+
+		}
+
 		public function getTable ()
 		{
-			$table = $this -> connection -> table ( $this -> m_Table );
-			return $table;
+			return $this -> connection -> table ( $this -> m_Table );
 		}	
 	}

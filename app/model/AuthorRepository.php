@@ -5,23 +5,20 @@
 
 class AuthorRepository extends BaseRepository
 {
-	private $m_AppTable;
-
-	public function __contstruct ( Nette\Database\Connection $database )
+	
+	public function __construct ( Nette\Database\Connection $database )
 	{
 		parent::__construct( $database );
-		$this -> m_Table = "";
+		$this -> m_Table = "Autor";
 	}
 
 	public function getAuthorsList ()
 	{
-		//return $this -> getTable ();
-		return array(10);
+		return $this -> getTable ();
 	}
 
 	public function getAuthorData ( $username )
 	{
-		//return $this -> getTable () -> where ( "username", $username );
-		return array(1);
+		return $this -> getTable () -> where ( "username", $username );
 	}
 }

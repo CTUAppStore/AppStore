@@ -16,9 +16,9 @@ common:
 			errorPresenter: Error
 
 		database:
-			dsn: 'mysql:host=localhost;dbname=test'
-			user:
-			password:
+			dsn: 'mysql:host=localhost;dbname=appstore'
+			user: root
+			password: pass
 
 		session:
 			expiration: 14 days

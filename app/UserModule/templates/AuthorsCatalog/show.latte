@@ -2,8 +2,8 @@
 <h2>Katalog autorů</h2>
 
 <table>
-<tr><th>Jméno</th><th>Příjmení</th><th>Detaily</th></tr>
+<tr><th>Jméno a příjmení</th><th>Email</th><th>Detaily</th></tr>
 {foreach $authorsList as $author}
-<tr><td></td><td></td><td></td></tr>
+<tr><td>{$author->jmeno}</td><td>{$author->email}</td><td><a n:href=":User:Author:show $author->username">Detaily</a></td></tr>
 {/foreach}
 </table>
