@@ -93,4 +93,15 @@ class ApplicationRepository extends BaseRepository
 		$rowAuthor = $this -> getAplikaceTable () -> select ( "autor" ) -> where ( "ID_aplikace", $appId );
 		return $this -> getAutorTable () -> select ( "jmeno" ) -> where ( "username", $rowAuthor ) -> fetch ();
 	}
+
+	public function getUserLicences ( $username )
+	{
+		$rows = $this -> getNakupTable () -> where ( "uzivatel", $username );
+		foreach ( $rows as $row )
+		{
+			$appName = $this -> getAplikaceTable () -> select ( "nazev" ) -> where ( "ID_aplikace", $row [ 'licence' ]) -> fetch ();
+			$row [ 'nazev' ] = $appName['nazev'];
+		}
+		return $rows;
+	}
 }

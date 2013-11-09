@@ -1,0 +1,18 @@
+{block content}
+<h2>Zakoupené licence</h2>
+{if count($licences) < 1}
+Dosud jste nezakoupil žádné licence.
+{else}
+<table>
+<tr><th>Licence</th><th>Konec licence</th><th>Datum nákupu:</th></tr>
+{foreach $licences as $licence}
+<tr><td>
+<a n:href=":User:Application:show $licence->licence">{$licence->nazev}</a></td><td>
+	{if $licence->datum_vyprseni_licence == NULL }
+		Neomezene
+	{else}
+	{$licence->datum_vyprseni_licence|date:'j.n.Y H:i:s'}
+	{/if}
+	</td><td>{$licence->datum_nakupu|date:'j.n.Y H:i:s'}</td></tr
+{/foreach}
+{/if}
