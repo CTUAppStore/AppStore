@@ -68,6 +68,21 @@ class ApplicationRepository extends BaseRepository
 		return $this -> getObrazekTable () -> where ( "aplikace", $id );
 	}
 
+	public function getApplicationComments ( $id )
+	{
+		return $this -> getKomentarTable () -> where ( "aplikace", $id );
+	}
+
+	public function insertComment ( $appId, $title, $comment, $username )
+	{
+		return $this -> getKomentarTable () -> insert ( array (
+			'nadpis' => $title,
+			'obsah' => $comment,
+			'aplikace' => $appId,
+			'uzivatel' => $username
+			));
+	}
+
 	public function getAuthorApps ( $username )
 	{
 		return $this -> getAplikaceTable () -> where ( "autor", $username );

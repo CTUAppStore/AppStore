@@ -9,10 +9,12 @@ use Nette\Application\UI\Form;
  */
 class ApplicationPresenter extends SignedPresenter
 {
+	private $m_AppId;
 	private $m_AppData;
 	private $m_AppLicenceInfo;
 	private $m_AuthorName;
 	private $m_AppPictures;
+	private $m_AppComments;
 
 	protected function startup()
 	{
@@ -22,10 +24,12 @@ class ApplicationPresenter extends SignedPresenter
 
 	public function actionShow ( $id )
 	{
+		$this -> m_AppId = $id;
 		$this -> m_AppData = $this -> repository -> getApplicationData ( $id );
 		$this -> m_AuthorName = $this -> repository -> getAuthorName ( $id );
 		$this -> m_AppLicenceInfo = $this -> repository -> getApplicationLicenceInfo ( $id );
 		$this -> m_AppPictures = $this -> repository -> getApplicationPictures ( $id );
+		$this -> m_AppComments = $this -> repository -> getApplicationComments ( $id );
 	}
 
 	public function renderShow ()
@@ -34,6 +38,36 @@ class ApplicationPresenter extends SignedPresenter
 		$this -> template -> authorName = $this -> m_AuthorName;
 		$this -> template -> licenceInfo = $this -> m_AppLicenceInfo;
 		$this -> template -> appPictures = $this -> m_AppPictures;
+		$this -> template -> appComments = $this -> m_AppComments;
+	}
+
+	public function createComponentInsertCommentForm ()
+	{
+		$form = new Form ();
+
+		$form -> addText ( 'title', 'Nadpis:' )
+				-> addRule ( Form::FILLED, 'Nadpis musí být vyplněn.' );
+		$form -> addTextArea ( 'comment', 'Komentář:' )
+    			-> addRule ( Form::FILLED, 'Komentář musí být vyplněn.' );
+    	$form -> addSubmit ( 'insertComment', 'Vložit' );
+    	$form -> onSuccess[] = $this -> insertCommentFormSubmitted;
+
+    	return $form;
+	}
+
+	public function insertCommentFormSubmitted ( $form )
+	{
+		$inserted = $this -> repository -> insertComment ( $this -> m_AppId, $form -> values -> title, $form -> values -> comment, $this -> getUser () -> getIdentity () -> username );
+
+		if ( $inserted != FALSE )
+		{
+			$this -> flashMessage ( 'Komentář byl úspěšně vložen.', 'success' );
+			$this -> redirect ( "this" );
+		}
+		else
+		{
+			$this -> flashMessage ( 'Komentář se nepodařilo vložit.', 'error' );
+		}
 	}
 
 	public function actionBuy ( $id )

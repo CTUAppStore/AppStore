@@ -16,3 +16,17 @@
 <tr><td>{$pict->popis}</td><td><img src="{$pict->url}"></td></tr>
 {/foreach}
 </table>
+
+<h3>Komentáře</h3>
+{control insertCommentForm}
+
+{if count($appComments) > 0}
+{foreach $appComments as $comment}
+<h4>{$comment->nadpis}</h4>
+<p>{$comment->obsah}</p>
+<span><i>Vložil: {$comment->uzivatel}</i></span>
+<hr>
+{/foreach}
+{else}
+Dosud nebyl vložen žádný komentář.
+{/if}
