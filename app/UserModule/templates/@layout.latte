@@ -21,9 +21,12 @@
 
 <body>
 	<script> document.documentElement.className+=' js' </script>
-    <div class="navbar navbar-static-top">
-        <a n:href="signOut!">Odhlásit se</a>
-    </div>
+    {if $user->isLoggedIn()}
+        Přihlášen: {$user->getIdentity()->username}
+        <div class="navbar navbar-static-top">
+            <a n:href="signOut!">Odhlásit se</a>
+        </div>
+    {/if}
     <div class="container">
 	    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}
         </div>

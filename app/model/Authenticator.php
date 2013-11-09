@@ -38,23 +38,23 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 	{
 		list($username, $password) = $credentials;
 
-		$arr = array('username' => $username, 'password' => $password, 'id'=>1, 'role'=>'user');
-		return new Nette\Security\Identity($arr['id'], $arr['role'], $arr);
+		//$arr = array('username' => $username, 'password' => $password, 'id'=>1, 'role'=>'user');
+		//return new Nette\Security\Identity($arr['id'], $arr['role'], $arr);
 
 		list($username, $password) = $credentials;
-		$row = $this->database->table('users')->where('username', $username)->fetch();
+		$row = $this->database->table('Uzivatel')->where('username', $username)->fetch();
 
 		if (!$row) {
 			throw new Security\AuthenticationException('The username is incorrect.', self::IDENTITY_NOT_FOUND);
 		}
 
-		if ($row->password !== $this->calculateHash($password, $row->password)) {
+		if ($row->hash_hesla !== $this->calculateHash($password, NULL)) {
 			throw new Security\AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
 		}
 
 		$arr = $row->toArray();
 		unset($arr['password']);
-		return new Nette\Security\Identity($row->id, $row->role, $arr);
+		return new Nette\Security\Identity($row->username, "user", $arr);
 	}
 
 
@@ -68,7 +68,8 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 		if ($password === Strings::upper($password)) { // perhaps caps lock is on
 			$password = Strings::lower($password);
 		}
-		return crypt($password, $salt ?: '$2a$07$' . Strings::random(22));
+		//return crypt($password, $salt ?: '$2a$07$' . Strings::random(22));
+		return sha1($password);
 	}
 
 }
