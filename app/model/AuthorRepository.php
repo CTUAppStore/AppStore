@@ -19,6 +19,6 @@ class AuthorRepository extends BaseRepository
 
 	public function getAuthorData ( $username )
 	{
-		return $this -> getTable () -> where ( "username", $username );
+		return $this -> getTable () -> where ( "username", $username ) -> fetch ();
 	}
 }

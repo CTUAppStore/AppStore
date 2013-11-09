@@ -16,9 +16,9 @@ class AuthorPresenter extends SignedPresenter
 		$this -> repository = $this -> context -> authorRepository;
 	}
 
-	public function actionShow ( $id )
+	public function actionShow ( $username )
 	{
-		$this -> m_AuthorData = $this -> repository -> getAuthorData ( $this -> m_AuthorUsername );
+		$this -> m_AuthorData = $this -> repository -> getAuthorData ( $username );
 	}
 
 	public function renderShow ()
