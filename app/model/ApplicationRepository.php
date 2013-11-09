@@ -14,13 +14,11 @@ class ApplicationRepository extends BaseRepository
 
 	public function getApplicationData ( $id )
 	{
-		return $this -> getTable () -> where ( "id", $id ) -> fetch ();
-		//return array(10);
+		return $this -> getTable () -> where ( "ID_aplikace", $id ) -> fetch ();
 	}
 
 	public function getAppList ()
 	{
 		return $this -> getTable ();
-		//return array(10);
 	}
 }

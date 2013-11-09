@@ -1,11 +1,9 @@
 {block content}
 <h2>Detail aplikace</h2>
-{foreach $AppData as $dat}
 <table>
-<tr><th>Název:</th><td></td></tr>
-<tr><th>Krátký popis:</th><td></td></tr>
-<tr><th>Klíčová slova:</th><td></td></tr>
-<tr><th>Popis:</th><td></td></tr>
+<tr><th>Název:</th><td>{$appData->nazev}</td></tr>
+<tr><th>Popis:</th><td>{$appData->popis}</td></tr>
+<tr><th>Verze aplikace:</th><td>{$appData->verze}</td></tr>
+<tr><th>Přidáno:</th><td>{$appData->datum_pridani|date:'j.n.Y H:i:s'}</td></tr>
+<tr><th>Autor:</th><td><a n:href=":User:Author:show $appData->autor">Detail autora</a></td></tr>
 </table>
-{*<a n:href="Application:buy $dat->id">Zakoupit aplikaci</a>*}
-{/foreach}

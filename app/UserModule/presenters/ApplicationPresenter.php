@@ -24,7 +24,7 @@ class ApplicationPresenter extends SignedPresenter
 
 	public function renderShow ()
 	{
-		$this -> template -> AppData = $this -> m_AppData;
+		$this -> template -> appData = $this -> m_AppData;
 	}
 
 	public function actionBuy ( $id )

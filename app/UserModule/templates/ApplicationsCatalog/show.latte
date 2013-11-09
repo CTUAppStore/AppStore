@@ -4,6 +4,6 @@
 <table>
 <tr><th>Název</th><th>Stručný popis</th><th>Detaily</th></tr>
 {foreach $appList as $app}
-<tr><td></td><td></td><td></td></tr>
+<tr><td>{$app->nazev}</td><td>{$app->popis}</td><td><a n:href=":User:Application:show $app->ID_aplikace">Detail</a></td></tr>
 {/foreach}
 </table>
