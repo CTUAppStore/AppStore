@@ -46,7 +46,7 @@ class SignPresenter extends BasePresenter
 		}
 
 		try {
-			$this->getUser()->login($values->username, $values->password);
+			$this->getUser()->login($values->username, $values->password, "uzivatel");
 			$this -> flashMessage ( 'Byl jste úspěšně přihlášen.', 'success' );
 			$this->redirect('Homepage:');
 

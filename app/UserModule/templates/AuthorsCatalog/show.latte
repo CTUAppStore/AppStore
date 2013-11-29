@@ -4,6 +4,6 @@
 <table>
 <tr><th>Jméno a příjmení</th><th>Email</th><th>Detaily</th></tr>
 {foreach $authorsList as $author}
-<tr><td>{$author->jmeno}</td><td>{$author->email}</td><td><a n:href=":User:Author:show $author->username">Detaily</a></td></tr>
+<tr><td>{$author->jmeno}</td><td>{$author->email}</td><td><a n:href=":User:Author:show $author->FK_username">Detaily</a></td></tr>
 {/foreach}
 </table>

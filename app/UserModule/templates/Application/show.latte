@@ -1,6 +1,18 @@
 {block content}
 <h2>Detail aplikace</h2>
+
+{if count($userLicence)>0}
+	{foreach $userLicence as $licence}
+		{if $licence->zaplaceno==1}
+			<a n:href="$appData->url">Stahnout aplikaci</a>
+		{else}
+			<a n:href=":User:Application:buy $appData->ID_aplikace">Koupit licenci</a>
+		{/if}
+	{/foreach}
+{else}
 <a n:href=":User:Application:buy $appData->ID_aplikace">Koupit licenci</a>
+{/if}
+
 <table>
 <tr><th>Název:</th><td>{$appData->nazev}</td></tr>
 <tr><th>Popis:</th><td>{$appData->popis}</td></tr>
@@ -8,7 +20,7 @@
 <tr><th>Cena licence:</th><td>{$licenceInfo->cena|number} Kč</td></tr>
 <tr><th>Doba platnosti:</th><td>{$licenceInfo->doba_platnosti} dnů</td></tr>
 <tr><th>Přidáno:</th><td>{$appData->datum_pridani|date:'j.n.Y H:i:s'}</td></tr>
-<tr><th>Autor:</th><td><a n:href=":User:Author:show $appData->autor">{$authorName->jmeno}</a></td></tr>
+<tr><th>Autor:</th><td><a n:href=":User:Author:show $appData->FK_Autor">{$authorName->jmeno}</a></td></tr>
 </table>
 <h3>Obrázky</h3>
 <table>
@@ -24,7 +36,7 @@
 {foreach $appComments as $comment}
 <h4>{$comment->nadpis}</h4>
 <p>{$comment->obsah}</p>
-<span><i>Vložil: {$comment->uzivatel}</i></span>
+<span><i>Vložil: {$comment->FK_Uzivatel}</i></span>
 <hr>
 {/foreach}
 {else}

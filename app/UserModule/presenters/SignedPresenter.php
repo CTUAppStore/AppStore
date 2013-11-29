@@ -17,12 +17,6 @@ abstract class SignedPresenter extends BasePresenter
 			$this->redirect(':User:Sign:in');
     }
 
-	/*public function actionOut()
-	{
-		$this->getUser()->logout();
-		$this->flashMessage('You have been signed out.', 'error');
-		$this->redirect(':User:Sign:in');
-	}*/
 	public function handleSignOut()
 	{
 	    $this->getUser()->logout();

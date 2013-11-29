@@ -36,24 +36,31 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 	 */
 	public function authenticate(array $credentials)
 	{
-		list($username, $password) = $credentials;
+		list($username, $password, $role) = $credentials;
 
 		//$arr = array('username' => $username, 'password' => $password, 'id'=>1, 'role'=>'user');
 		//return new Nette\Security\Identity($arr['id'], $arr['role'], $arr);
 
-		list($username, $password) = $credentials;
-		$row = $this->database->table('Uzivatel')->where('username', $username)->fetch();
+		//list($username, $password) = $credentials;
+		$row = $this->database->table('Udaje')->where('username', $username)->fetch();
 
 		if (!$row) {
 			throw new Security\AuthenticationException('The username is incorrect.', self::IDENTITY_NOT_FOUND);
+		}
+
+		if ( $row -> role != $role )
+		{
+			throw new Security\AuthenticationException('The username not found for this category.', self::IDENTITY_NOT_FOUND);
 		}
 
 		if ($row->hash_hesla !== $this->calculateHash($password, NULL)) {
 			throw new Security\AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
 		}
 
-		$arr = $row->toArray();
-		unset($arr['password']);
+		//$arr = $row->toArray();
+		$arr ['username'] = $row -> username;
+		$arr ['role'] = $row -> role;
+		//unset($arr['password']);
 		return new Nette\Security\Identity($row->username, "user", $arr);
 	}
 

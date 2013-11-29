@@ -15,6 +15,7 @@ class ApplicationPresenter extends SignedPresenter
 	private $m_AuthorName;
 	private $m_AppPictures;
 	private $m_AppComments;
+	private $m_UserLicence;
 
 	protected function startup()
 	{
@@ -30,6 +31,7 @@ class ApplicationPresenter extends SignedPresenter
 		$this -> m_AppLicenceInfo = $this -> repository -> getApplicationLicenceInfo ( $id );
 		$this -> m_AppPictures = $this -> repository -> getApplicationPictures ( $id );
 		$this -> m_AppComments = $this -> repository -> getApplicationComments ( $id );
+		$this -> m_UserLicence = $this -> repository -> getUserLicence ( $id, $this -> getUser () -> getIdentity () -> username );
 	}
 
 	public function renderShow ()
@@ -39,6 +41,7 @@ class ApplicationPresenter extends SignedPresenter
 		$this -> template -> licenceInfo = $this -> m_AppLicenceInfo;
 		$this -> template -> appPictures = $this -> m_AppPictures;
 		$this -> template -> appComments = $this -> m_AppComments;
+		$this -> template -> userLicence = $this -> m_UserLicence;
 	}
 
 	public function createComponentInsertCommentForm ()

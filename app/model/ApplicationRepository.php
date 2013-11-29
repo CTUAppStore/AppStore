@@ -79,13 +79,13 @@ class ApplicationRepository extends BaseRepository
 			'nadpis' => $title,
 			'obsah' => $comment,
 			'aplikace' => $appId,
-			'uzivatel' => $username
+			'FK_uzivatel' => $username
 			));
 	}
 
 	public function getAuthorApps ( $username )
 	{
-		return $this -> getAplikaceTable () -> where ( "autor", $username );
+		return $this -> getAplikaceTable () -> where ( "FK_autor", $username );
 	}
 
 	public function getAppList ()
@@ -100,23 +100,29 @@ class ApplicationRepository extends BaseRepository
 
 	public function getAuthorData ( $username )
 	{
-		return $this -> getAutorTable () -> where ( "username", $username ) -> fetch ();
+		return $this -> getAutorTable () -> where ( "FK_username", $username ) -> fetch ();
 	}
 
 	public function getAuthorName ( $appId )
 	{
-		$rowAuthor = $this -> getAplikaceTable () -> select ( "autor" ) -> where ( "ID_aplikace", $appId );
-		return $this -> getAutorTable () -> select ( "jmeno" ) -> where ( "username", $rowAuthor ) -> fetch ();
+		$rowAuthor = $this -> getAplikaceTable () -> select ( "FK_autor" ) -> where ( "ID_aplikace", $appId );
+		return $this -> getAutorTable () -> select ( "jmeno" ) -> where ( "FK_username", $rowAuthor ) -> fetch ();
 	}
 
 	public function getUserLicences ( $username )
 	{
-		$rows = $this -> getNakupTable () -> where ( "uzivatel", $username );
+		$rows = $this -> getNakupTable () -> where ( "FK_uzivatel", $username );
 		foreach ( $rows as $row )
 		{
 			$appName = $this -> getAplikaceTable () -> select ( "nazev" ) -> where ( "ID_aplikace", $row [ 'licence' ]) -> fetch ();
 			$row [ 'nazev' ] = $appName['nazev'];
 		}
 		return $rows;
+	}
+
+	public function getUserLicence ( $appId, $username )
+	{
+		$id = $this -> getLicenceTable () -> select ( "ID_licence" ) -> where ( "aplikace", $appId );
+		return $this -> getNakupTable () -> where ( "licence", $id ) -> where ( "FK_uzivatel", $username );
 	}
 }
