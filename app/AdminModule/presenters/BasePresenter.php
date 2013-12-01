@@ -1,7 +1,7 @@
 <?php
 namespace AdminModule;
 /**
- * Base presenter for all application presenters.
+ * Základní presenter od kterého dědí všechny ostatní presentery.
  */
 abstract class BasePresenter extends \Nette\Application\UI\Presenter
 {

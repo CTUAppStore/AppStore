@@ -6,20 +6,27 @@ use Nette\Application\UI;
 namespace UserModule;
 
 /**
- * Sign in/out presenters.
+ * Sign in/out presenter.
  */
 abstract class SignedPresenter extends BasePresenter
 {
-    protected function startup(){
-		parent::startup();
+    /** @brief Start presenteru
+	@return void
+	*/
+    protected function startup()
+    {
+	parent::startup();
 
-		if (!$this->getUser()->isLoggedIn())
-			$this->redirect(':User:Sign:in');
+	if (!$this->getUser()->isLoggedIn())
+	    $this->redirect(':User:Sign:in');
     }
 
-	public function handleSignOut()
-	{
-	    $this->getUser()->logout();
-	    $this->redirect('Sign:in');
-	}
+    /** @brief Odhlásí uživatele
+	@return void
+	*/
+    public function handleSignOut()
+    {
+        $this->getUser()->logout();
+        $this->redirect('Sign:in');
+    }
 }

@@ -6,15 +6,15 @@ use Nette\Application\UI;
 namespace UserModule;
 
 /**
- * Sign in/out presenters.
+ * Sign in/out presenter.
  */
 class SignPresenter extends BasePresenter
 {
 
 
 	/**
-	 * Sign-in form factory.
-	 * @return Nette\Application\UI\Form
+	 * @brief Vytvoří komponentu přihlašovací formulář
+	 * @return Nette\\Application\\UI\\Form
 	 */
 	protected function createComponentSignInForm()
 	{
@@ -35,6 +35,10 @@ class SignPresenter extends BasePresenter
 	}
 
 
+	/** @brief Callback při přihlášení
+	    @param Nette\Application\UI\Form Formulář
+	    @return void
+	    */
 	public function signInFormSucceeded($form)
 	{
 		$values = $form->getValues();

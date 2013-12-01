@@ -17,12 +17,19 @@ class ApplicationPresenter extends SignedPresenter
 	private $m_AppComments;
 	private $m_UserLicence;
 
+	/** @brief Start presenteru
+	    @return void
+	    */
 	protected function startup()
 	{
 		parent::startup();
 		$this -> repository = $this -> context -> applicationRepository;
 	}
 
+	/** @brief Akce zobrazení
+	    @param int Id aplikace
+	    @return void
+	    */
 	public function actionShow ( $id )
 	{
 		$this -> m_AppId = $id;
@@ -34,6 +41,9 @@ class ApplicationPresenter extends SignedPresenter
 		$this -> m_UserLicence = $this -> repository -> getUserLicence ( $id, $this -> getUser () -> getIdentity () -> username );
 	}
 
+	/** @brief Vykreslí detail aplikace
+	    @return void
+	    */
 	public function renderShow ()
 	{
 		$this -> template -> appData = $this -> m_AppData;
@@ -44,6 +54,9 @@ class ApplicationPresenter extends SignedPresenter
 		$this -> template -> userLicence = $this -> m_UserLicence;
 	}
 
+	/** @brief Vytvoří komponentu vložit komentář
+	    @return Nette\\Application\\UI\\Form
+	    */
 	public function createComponentInsertCommentForm ()
 	{
 		$form = new Form ();
@@ -58,6 +71,10 @@ class ApplicationPresenter extends SignedPresenter
     	return $form;
 	}
 
+	/** @brief Callback při odeslání komentáře
+	    @param Nette\Application\UI\Form Formulář
+	    @return void
+	    */
 	public function insertCommentFormSubmitted ( $form )
 	{
 		$inserted = $this -> repository -> insertComment ( $this -> m_AppId, $form -> values -> title, $form -> values -> comment, $this -> getUser () -> getIdentity () -> username );
@@ -73,16 +90,26 @@ class ApplicationPresenter extends SignedPresenter
 		}
 	}
 
+	/** @brief Akce koupě
+	    @param int Id aplikace
+	    @return void
+	    */
 	public function actionBuy ( $id )
 	{
 
 	}
 
+	/** @brief Vykreslí akci koupě
+	    @return void
+	    */
 	public function renderBuy ()
 	{
 
 	}
 
+	/** @brief Vytvoří komponentu nákupní formulář
+	    @return Nette\\Application\\UI\\Form
+	    */
 	public function createComponentBuyForm ()
 	{
 
@@ -99,6 +126,10 @@ class ApplicationPresenter extends SignedPresenter
 		return $form;
 	}
 
+	/** @brief Callback při odeslání nákupního formuláře
+	    @param Nette\Application\UI\Form Formulář
+	    @return void
+	    */
 	public function buyFormSubmited ( $form )
 	{
 

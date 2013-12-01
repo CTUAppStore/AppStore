@@ -4,18 +4,28 @@ namespace UserModule;
 
 use \NiftyGrid\Grid;
 
+/** Applications Catalog Grid.*/
 class ApplicationsCatalogGrid extends Grid
 {
+    /** @brief Databázová tabulka kterou Grid zobrazuje */
     protected $data;
 
 //    protected $article_id;
 
+    
+    /** @brief Konstruktor
+	@param Nette\Database\Table Databázová tabulka
+    */
     public function __construct($d)
     {
         parent::__construct();
         $this->data = $d;
     }
 
+    /** @brief Provede veškeré nastavení Gridu
+        @param Nette\ComponentModel\IComponent Presenter
+        @return void
+    */
     protected function configure($presenter)
     {
         $source = new \NiftyGrid\NDataSource($this->data);
