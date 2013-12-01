@@ -10,7 +10,8 @@ class ErrorPresenter extends BasePresenter
 {
 
 	/**
-	 * @param  Exception
+         * @brief Vykreslí chybovou hlášku pro vyjímku
+	 * @param  Exception Vyjímka
 	 * @return void
 	 */
 	public function renderDefault($exception)

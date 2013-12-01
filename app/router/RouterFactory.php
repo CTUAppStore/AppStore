@@ -12,7 +12,8 @@ class RouterFactory
 {
 
 	/**
-	 * @return Nette\Application\IRouter
+	 * @brief Vytvoří nový router
+	 * @return Nette\\Application\\IRouter
 	 */
 	public function createRouter()
 	{

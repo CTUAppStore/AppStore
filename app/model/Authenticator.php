@@ -15,7 +15,7 @@ CREATE TABLE users (
 */
 
 /**
- * Users authenticator.
+ * Autentikátor uživatelů.
  */
 class Authenticator extends Nette\Object implements Security\IAuthenticator
 {
@@ -23,6 +23,9 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 	private $database;
 
 
+	/** @brief Konstruktor
+	    @param Nette\Database\Connection Připojení do databáze
+	*/
 	public function __construct(Nette\Database\Connection $database)
 	{
 		$this->database = $database;
@@ -30,9 +33,9 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 
 
 	/**
-	 * Performs an authentication.
-	 * @return Nette\Security\Identity
-	 * @throws Nette\Security\AuthenticationException
+	 * @brief Provádí autentifikaci.
+	 * @return Nette\Security\Identity Identita uživatele
+	 * @throws Nette\Security\AuthenticationException Vyjímka při neúspěchu (špatné údaje)
 	 */
 	public function authenticate(array $credentials)
 	{
@@ -66,9 +69,10 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 
 
 	/**
-	 * Computes salted password hash.
-	 * @param  string
-	 * @return string
+	 * @brief Vypočítá hash hesla.
+	 * @param  string Heslo
+	 * @param  string Salt
+	 * @return string Vypočítaný hash hesla
 	 */
 	public static function calculateHash($password, $salt = NULL)
 	{
