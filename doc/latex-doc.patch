@@ -1,0 +1,19 @@
+refman.tex:
+
+1)
+
+\LARGE{\textbf{AppStore}\\[7mm]
+\Large{BI-SI1 Projekt}
+
+
+2)
+
+Smazat datum generovani v paticce
+
+
+3)
+
+latex refman.tex
+dvips refman.dvi
+ps2pdf refman.ps
+mv refman.pdf AppStore-Dokumentace.pdf

@@ -1,2 +1,4 @@
 /temp/cache/_Nette.*
 .directory
+doc/html
+doc/latex
