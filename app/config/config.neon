@@ -18,7 +18,7 @@ common:
 		database:
 			dsn: 'mysql:host=localhost;dbname=appstore'
 			user: root
-			password: pass
+			password: zibohlavy
 
 		session:
 			expiration: 14 days

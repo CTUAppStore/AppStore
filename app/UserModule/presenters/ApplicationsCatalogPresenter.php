@@ -23,4 +23,8 @@ class ApplicationsCatalogPresenter extends SignedPresenter
 	{
 		$this -> template -> appList = $this -> m_AppList;
 	}
+
+	protected function createComponentDataGrid(){
+	    return new ApplicationsCatalogGrid($this->m_AppList);
+	}
 }

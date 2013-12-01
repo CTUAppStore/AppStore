@@ -29,4 +29,8 @@ class AuthorPresenter extends SignedPresenter
 		$this -> template -> AuthorApps = $this -> m_AuthorApps;
 	}
 
+	protected function createComponentAppsList(){
+	    return new ApplicationsCatalogGrid($this->m_AuthorApps);
+	}
+
 }

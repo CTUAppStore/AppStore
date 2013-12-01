@@ -24,4 +24,8 @@ class AuthorsCatalogPresenter extends SignedPresenter
 		$this -> template -> authorsList = $this -> m_AuthorsList;
 	}
 
+
+	protected function createComponentDataGrid(){
+	    return new AuthorsCatalogGrid($this->m_AuthorsList);
+	}
 }

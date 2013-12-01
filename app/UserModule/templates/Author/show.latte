@@ -5,9 +5,14 @@
 <tr><th>Jméno a příjmení:</th><td>{$AuthorData->jmeno}</td></tr> 
 <tr><th>Email:</th><td>{$AuthorData->email}</td></tr> 
 </table> 
+
 <h3>Autorovy aplikace</h3>
-<table>
+
+{*<table>
 {foreach $AuthorApps as $app}
 <tr><td><a n:href=":User:Application:show $app->ID_aplikace">{$app->nazev}</a></td><td>{$app->popis}</td></tr>
 {/foreach}
 </table>
+*}
+
+{control appsList}
