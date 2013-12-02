@@ -7,7 +7,7 @@
 
     Webová aplikace umožnující nákup a následné stahování aplikací.<br/>
     Podmínkou k nákupu aplikací je registrace uživatele, která mu zároveň dovolí aplikace hodnotit a psát komentáře.<br/>
-    V systému působí administrátoři, kteří spravují vkládané aplikace a dohlížejí na komentáře uživatelů. 
+    V systému působí administrátoři, kteří spravují vkládané aplikace a dohlížejí na komentáře uživatelů.
 
     \section sect2 Použité technologie
     Aplikace je napsaná v jazyce PHP s pomocí <a href="http://nette.org/">Nette</a> frameworku.<br/>
@@ -20,7 +20,7 @@
 
     \section sect5 Autoři
     \li Jan Karafiát
-    \li Jan Novák
+    \li Michal Novák
     \li Filip Kodýtek
     \li Aleš Saska
     \li David Rosca
