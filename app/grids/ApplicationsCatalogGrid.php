@@ -35,6 +35,13 @@ class ApplicationsCatalogGrid extends Grid
 	    ->setTextFilter();
         $this->addColumn("popis", "Popis")
 	    ->setTextFilter();
+        $this->addColumn("OS", "OS")
+	    ->setTextFilter();
+        $this->addColumn("velikost", "Velikost")
+	    ->setCellRenderer(function($row){return "text-align:right";})
+	    ->setRenderer(function($row) use ($presenter){return \Nette\Utils\Html::el('span')->setText($row['velikost']."KB");})
+	    ->setNumericFilter();
+
 
 	$this->addButton("detail", "Detail")
 	    ->setText("Detail")

@@ -56,11 +56,11 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 			throw new Security\AuthenticationException('The username not found for this category.', self::IDENTITY_NOT_FOUND);
 		}
 
-//		if ($row->hash_hesla !== $this->calculateHash($password, NULL)) {
-//			throw new Security\AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
-//		}
+		if ($row->hash_hesla !== $this->calculateHash($password, NULL)) {
+			throw new Security\AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
+		}
 
-		//$arr = $row->toArray();
+		$arr = $row->toArray();
 		$arr ['username'] = $row -> username;
 		$arr ['role'] = $row -> role;
 		//unset($arr['password']);

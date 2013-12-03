@@ -14,32 +14,37 @@
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 	<title>{block title|striptags|upper}AppStore :: Uživatelská sekce{/block}</title>
     <script type="text/javascript" src="{$baseUri}/ckeditor/config.js"></script>
-    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+
     <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
     <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap-theme.css">
     <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/grid.css">
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
     <link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
 	{block head}{/block}
 </head>
 
 <body>
 	<script> document.documentElement.className+=' js' </script>
     <div class="header">
-    {if $user->isLoggedIn()}
-        Přihlášen: {$user->getIdentity()->username}
-        <div class="navbar navbar-static-top">
-            <a n:href="signOut!">Odhlásit se</a>
-        </div>
-    {/if}
+        <span>
+	    {if $user->isLoggedIn()}
+	    Přihlášen: {$user->getIdentity()->username} | <a n:href="signOut!">Odhlásit se</a></span>
+	    {else}
+	    Neprihlášen
+	    {/if}
         <h1>Uživatelská sekce</h1>
     </div>
-    <div class='menu'>
 
+    <div class='menu'>
+	{block menu}
         <ul>
             <li><a n:href="ApplicationsCatalog:show">Katalog aplikací</a></li>
             <li><a n:href="AuthorsCatalog:show">Katalog autorů</a></li>
             <li><a n:href="BoughtLicences:show">Zakoupené licence</a></li>
-        </ul>    </div>
+        </ul>
+	{/block}
+    </div>
     <div class="container">
 	    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}
         </div>
