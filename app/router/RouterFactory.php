@@ -13,7 +13,7 @@ class RouterFactory
 
 	/**
 	 * @brief Vytvoří nový router
-	 * @return Nette\\Application\\IRouter
+	 * @return Vytvořený router
 	 */
 	public function createRouter()
 	{
