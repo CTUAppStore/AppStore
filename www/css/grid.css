@@ -211,9 +211,11 @@
     height:34px;
 }
 
+/*
 .grid .grid-filter-form-active{
     background-color: #0078ff;
 }
+*/
 
 .grid .grid-filter-form input[type="text"]{
     width:100%;
@@ -241,7 +243,7 @@
 .grid .grid-filter-reset{
     width:24px;
     height:24px;
-    background: url('../images/cancel_white.png') no-repeat #0078ff 3px;
+    background: url('../images/cancel_white.png') no-repeat 3px;
     display:block;
     margin-left:71px;
 }
