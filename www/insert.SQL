@@ -58,7 +58,7 @@ insert into Komentar (nadpis,obsah,aplikace,FK_Uzivatel) values ('Bug','Nejde se
 insert into Komentar (nadpis,obsah,aplikace,FK_Uzivatel) values ('Dotaz na autora','Kdy přiděláte sekci biologie?',5,'Houdini');
 insert into Komentar (nadpis,obsah,aplikace,FK_Uzivatel) values ('Pochvala','Výborný program.',5,'KubaT');
 
-insert into Nakup (datum_nakupu,datum_vyprseni_licence,licence,FK_Uzivatel) values ('2012-12-06 02:22:10','2013-01-23 02:22:10',1,'DavidLok');
-insert into Nakup (datum_nakupu,datum_vyprseni_licence,licence,FK_Uzivatel) values ('2011-09-01 07:45:10',null,3,'KubaT');
-insert into Nakup (datum_nakupu,datum_vyprseni_licence,licence,FK_Uzivatel) values ('2013-10-10 11:48:10','2013-10-20 11:48:10',5,'Houdini');
-insert into Nakup (datum_nakupu,datum_vyprseni_licence,licence,FK_Uzivatel) values ('2013-10-11 11:48:10','2013-10-21 11:48:10',5,'KubaT');
+insert into Nakup (datum_nakupu,datum_vyprseni_licence,licence,FK_Uzivatel,zaplaceno) values ('2012-12-06 02:22:10','2013-01-23 02:22:10',1,'DavidLok',1);
+insert into Nakup (datum_nakupu,datum_vyprseni_licence,licence,FK_Uzivatel,zaplaceno) values ('2011-09-01 07:45:10',null,3,'KubaT',1);
+insert into Nakup (datum_nakupu,datum_vyprseni_licence,licence,FK_Uzivatel,zaplaceno) values ('2013-10-10 11:48:10','2013-10-20 11:48:10',5,'Houdini',1);
+insert into Nakup (datum_nakupu,datum_vyprseni_licence,licence,FK_Uzivatel,zaplaceno) values ('2013-10-11 11:48:10','2013-10-21 11:48:10',5,'KubaT',1);
