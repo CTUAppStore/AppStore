@@ -211,9 +211,11 @@
     height:34px;
 }
 
+/*
 .grid .grid-filter-form-active{
     background-color: #0078ff;
 }
+*/
 
 .grid .grid-filter-form input[type="text"]{
     width:100%;
