@@ -180,7 +180,7 @@ class ApplicationRepository extends BaseRepository
 		$rows = $this -> getNakupTable () -> where ( "FK_uzivatel", $username );
 		foreach ( $rows as $row )
 		{
-			$appName = $this -> getAplikaceTable () -> select ( "nazev" ) -> where ( "ID_aplikace", $row [ 'licence' ]) -> fetch ();
+			$appName = $this -> getAplikaceTable () -> where ( "ID_aplikace", $row [ 'licence' ]) -> fetch ();
 			$row [ 'nazev' ] = $appName['nazev'];
 		}
 		return $rows;

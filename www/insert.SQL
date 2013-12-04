@@ -26,16 +26,16 @@ insert into Uzivatel (FK_username,jmeno,kontrolni_otazka,kontrolni_odpoved,email
 insert into Uzivatel (FK_username,jmeno,kontrolni_otazka,kontrolni_odpoved,email) 
 	values ('KubaT',null,'Jméno matky.','Božena','kubat@seznam.cz');
 
-insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS) 
-	values ('Kalkulačka','Vylepšená klasická kalkulačka.',null,'2012-12-05 02:22:10','1.0','Lopatak',TRUE,4378,'Windows');
-insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS) 
-	values ('Malování','Vylepšené klasické malování.',null,'2012-11-04 08:22:10','1.0','Lopatak',TRUE,26836,'Solaris');
-insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS) 
-	values ('Mario','Klasická hopsačka.',null,'2011-08-30 07:45:10','1.4','Luke',TRUE,7896,'BSD');
-insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS) 
-	values ('Counter Strike','Oblíbené FPS.',null,'2010-05-01 10:30:05','1.0','Lopatak',FALSE,34536,'OS X');
-insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS) 
-	values ('Encyklopedie','Vzdělávací program.',null,'2013-10-09 11:48:10','1.0','Luke',TRUE,8374,'Linux');
+insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS,url) 
+	values ('Kalkulačka','Vylepšená klasická kalkulačka.',null,'2012-12-05 02:22:10','1.0','Lopatak',TRUE,4378,'Windows','../../files/aplikace.tar');
+insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS,url) 
+	values ('Malování','Vylepšené klasické malování.',null,'2012-11-04 08:22:10','1.0','Lopatak',TRUE,26836,'Solaris','../../files/aplikace.tar');
+insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS,url) 
+	values ('Mario','Klasická hopsačka.',null,'2011-08-30 07:45:10','1.4','Luke',TRUE,7896,'BSD','../../files/aplikace.tar');
+insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS,url) 
+	values ('Counter Strike','Oblíbené FPS.',null,'2010-05-01 10:30:05','1.0','Lopatak',FALSE,34536,'OS X','../../files/aplikace.tar');
+insert into Aplikace (nazev,popis,ikona,datum_pridani,verze,FK_Autor,schvalena,velikost,OS,url) 
+	values ('Encyklopedie','Vzdělávací program.',null,'2013-10-09 11:48:10','1.0','Luke',TRUE,8374,'Linux','../../files/aplikace.tar');
 
 insert into Obrazek (url,popis,aplikace) values ('../../images/example.jpg','popis1',1);
 insert into Obrazek (url,popis,aplikace) values ('../../images/example.jpg','popis2',1);

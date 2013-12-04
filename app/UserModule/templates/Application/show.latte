@@ -4,7 +4,7 @@
 {if count($userLicence)>0}
 	{foreach $userLicence as $licence}
 		{if $licence->zaplaceno==1}
-			<a n:href="$appData->url">Stahnout aplikaci</a>
+			<a href={$appData->url}>Stahnout aplikaci</a>
 		{else}
 			<a n:href=":User:Application:buy $appData->ID_aplikace">Koupit licenci</a>
 		{/if}
