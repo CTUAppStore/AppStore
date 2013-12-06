@@ -60,7 +60,7 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 			throw new Security\AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
 		}
 
-		$arr = $row->toArray();
+		//$arr = $row->toArray();
 		$arr ['username'] = $row -> username;
 		$arr ['role'] = $row -> role;
 		//unset($arr['password']);

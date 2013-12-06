@@ -19,15 +19,15 @@ class SignPresenter extends BasePresenter
 	protected function createComponentSignInForm()
 	{
 		$form = new \Nette\Application\UI\Form;
-		$form->addText('username', 'Username:')
-			->setRequired('Please enter your username.');
+		$form->addText('username', 'Uživatelské jméno:')
+			->setRequired('Zadejte uživatelské jméno.');
 
-		$form->addPassword('password', 'Password:')
-			->setRequired('Please enter your password.');
+		$form->addPassword('password', 'Heslo:')
+			->setRequired('Zadejte heslo.');
 
-		$form->addCheckbox('remember', 'Keep me signed in');
+		$form->addCheckbox('remember', 'Trvalé přihlášení');
 
-		$form->addSubmit('send', 'Sign in');
+		$form->addSubmit('send', 'Přihlásit');
 
 		// call method signInFormSucceeded() on success
 		$form->onSuccess[] = $this->signInFormSucceeded;
